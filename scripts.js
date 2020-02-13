@@ -91,14 +91,17 @@ function collisionDetection() {
                 console.log('missile ' + j + ' collided with enemy ' + i );
                 points += 1000;
 
-                let element = document.getElementById('enemies');
+                element = document.getElementById('enemies');
                 element.children[i].className = 'explosion1';
-                setTimeout(500);
-                // setTimeout(function(){},500);
-                // element.children[i].className = 'none';
+                
+                enemies.splice(i, 1);
+                
             }
         }
     }
+}
+function explosion(index) {
+    element.children[index].className='explosion';
 }
 
 function gameLoop() {
@@ -111,7 +114,6 @@ function gameLoop() {
 }
 
 document.onkeydown = function (e) {
-    console.log(e.keyCode);
     if (e.keyCode == 13) {
         g = setInterval(gameLoop, 90);
     } else if (e.keyCode == 37) {
