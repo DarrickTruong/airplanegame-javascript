@@ -41,9 +41,11 @@ function displayEnemies() {
 
 function moveEnemies() {
     for (enemy of enemies) {
-        enemy.y += 5;
+        enemy.y += 5
+        ;
 
         if (enemy.y > 500) {
+            
             enemy.y = 0;
         }
     }
@@ -82,11 +84,18 @@ function collisionDetection() {
     for (let i = 0; i < enemies.length; i++) {
         for (let j = 0; j < missiles.length; j++) {
             if (
-                Math.abs(enemies[i].x - missiles[j].x) < 12 &&
-                Math.abs(enemies[i].y - missiles[j].y) < 5
+                Math.abs(enemies[i].x - missiles[j].x) < 11 &&
+                Math.abs(enemies[i].y - missiles[j].y) < 7
+
             ) {
-                console.log("kaboom");
+                console.log('missile ' + j + ' collided with enemy ' + i );
                 points += 1000;
+
+                let element = document.getElementById('enemies');
+                element.children[i].className = 'explosion1';
+                setTimeout(500);
+                // setTimeout(function(){},500);
+                // element.children[i].className = 'none';
             }
         }
     }
@@ -104,7 +113,7 @@ function gameLoop() {
 document.onkeydown = function (e) {
     console.log(e.keyCode);
     if (e.keyCode == 13) {
-        g = setInterval(gameLoop, 100);
+        g = setInterval(gameLoop, 90);
     } else if (e.keyCode == 37) {
         hero.x--;
     } else if (e.keyCode == 39) {

@@ -18,6 +18,7 @@ body{
     background-position: -30px -10px;
     width:28px;
     height:28px;
+    transform: rotate(.5turn);
     position:absolute;
 }
 .missile{
@@ -26,6 +27,23 @@ body{
     width:18px;
     height:18px;
     position:absolute;
+}
+.explosion {
+    background: url('1942.gif');
+    background-position: -145px -30px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+.explosion1 {
+    background: url('1942.gif');
+    background-position: -110px -30px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+.none {
+    display: none;
 }
 #score{
     position:absolute;
